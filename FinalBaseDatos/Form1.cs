@@ -19,7 +19,7 @@ namespace FinalBaseDatos
         public Form1()
         {
             InitializeComponent();
-            //LlamarPuestos();
+            LlamarPuestos();
             LlamarEmpleados();
         }
 
@@ -95,15 +95,15 @@ namespace FinalBaseDatos
                 con.Close();
 
                 MessageBox.Show("Éxito.");
+
+                LlamarEmpleados();
+                grpDatos.Visible = false;
             }
 
             catch (Exception)
             {
                 MessageBox.Show("No proceso.");
             }
-
-            grpDatos.Visible = false;
-
         }
 
         private void btnOkNuevo_Click(object sender, EventArgs e)
@@ -173,6 +173,8 @@ namespace FinalBaseDatos
 
                 if (ex > 0)
                     MessageBox.Show("Éxito.");
+
+                LlamarEmpleados();
             }
             catch (Exception)
             {
@@ -203,6 +205,7 @@ namespace FinalBaseDatos
                 Empleado.lstEmpleados.Add(emp);
             }
             cmbEmpleado.Items.Clear();
+            cmbEmpleado2.Items.Clear();
             foreach (Empleado item in Empleado.lstEmpleados)
             {
                 cmbEmpleado.Items.Add(item.Nombre);
