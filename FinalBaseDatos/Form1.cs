@@ -19,6 +19,7 @@ namespace FinalBaseDatos
         {
             InitializeComponent();
             LlamarEmpleados();
+            LlamarPuestos();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -33,6 +34,8 @@ namespace FinalBaseDatos
             {
                 btnOkNuevo.Visible = true;
                 btnOkEditar.Visible = false;
+                txtEdad.Text = String.Empty;
+                txtNombre.Text = String.Empty;
             }
             else
             {
@@ -45,6 +48,9 @@ namespace FinalBaseDatos
         {
             grpDatos.Visible = true;
             ShowGroupBox(false);
+            int index = cmbEmpleado.SelectedIndex;
+            int id = Empleado.lstEmpleados[index].Id;
+            LlenarGrouBox(id);
         }
 
         private void btnOkEditar_Click(object sender, EventArgs e)
@@ -95,6 +101,7 @@ namespace FinalBaseDatos
             string proc = "proc_getDatosEmpleado";
             SqlCommand com = new SqlCommand(proc, con);
             com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("id", id);
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
             DataTable dt = new DataTable();
@@ -105,6 +112,39 @@ namespace FinalBaseDatos
             emp.Nombre = dt.Rows[0][0].ToString();
             emp.Puesto = Convert.ToInt32(dt.Rows[0][1]);
             emp.Edad = Convert.ToInt32(dt.Rows[0][2]);
+            emp.Id = id;
+
+            txtNombre.Text = emp.Nombre;
+            txtEdad.Text = emp.Edad.ToString();
+        }
+        private void LlamarPuestos()
+        {
+            SqlConnection con = new SqlConnection(cadenaCon);
+            string proc = "proc_getPuestos";
+            SqlCommand com = new SqlCommand(proc, con);
+            com.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            SqlDataReader dr = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            con.Close();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Puesto puesto = new Puesto();
+                puesto.Id = Convert.ToInt32(dt.Rows[i][0]);
+                puesto.Nombre = dt.Rows[i][1].ToString();
+                Puesto.lstPuestos.Add(puesto);
+            }
+            foreach (Puesto item in Puesto.lstPuestos)
+            {
+                cmbPuestos.Items.Add(item.Nombre);
+            }
+        }
+
+        private void SelectPuesto(int id)
+        {
+
         }
     }
 }
