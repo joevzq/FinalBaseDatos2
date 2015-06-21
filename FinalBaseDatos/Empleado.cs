@@ -41,21 +41,16 @@ namespace FinalBaseDatos
         {
             get { return fechaIngreso; }
             set { fechaIngreso = value; }
-        }
-        private int puesto;
 
-        public int Puesto
+        }
+        private Puesto puesto;
+
+        internal Puesto Puesto
         {
             get { return puesto; }
             set { puesto = value; }
         }
-        private long salarioBase;
 
-        public long SalarioBase
-        {
-            get { return salarioBase; }
-            set { salarioBase = value; }
-        }
         private List<Pago> pagos;
 
         public List<Pago> Pagos

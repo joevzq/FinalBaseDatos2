@@ -32,9 +32,9 @@
             this.tbAdmin = new System.Windows.Forms.TabPage();
             this.grpDatos = new System.Windows.Forms.GroupBox();
             this.btnOkEditar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cmbPuestos = new System.Windows.Forms.ComboBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblPuesto = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -97,9 +97,9 @@
             // grpDatos
             // 
             this.grpDatos.Controls.Add(this.btnOkEditar);
-            this.grpDatos.Controls.Add(this.comboBox1);
-            this.grpDatos.Controls.Add(this.textBox2);
-            this.grpDatos.Controls.Add(this.textBox1);
+            this.grpDatos.Controls.Add(this.cmbPuestos);
+            this.grpDatos.Controls.Add(this.txtEdad);
+            this.grpDatos.Controls.Add(this.txtNombre);
             this.grpDatos.Controls.Add(this.lblEdad);
             this.grpDatos.Controls.Add(this.lblPuesto);
             this.grpDatos.Controls.Add(this.lblNombre);
@@ -113,7 +113,7 @@
             // 
             // btnOkEditar
             // 
-            this.btnOkEditar.Location = new System.Drawing.Point(237, 63);
+            this.btnOkEditar.Location = new System.Drawing.Point(237, 58);
             this.btnOkEditar.Name = "btnOkEditar";
             this.btnOkEditar.Size = new System.Drawing.Size(75, 23);
             this.btnOkEditar.TabIndex = 11;
@@ -121,28 +121,28 @@
             this.btnOkEditar.UseVisualStyleBackColor = true;
             this.btnOkEditar.Click += new System.EventHandler(this.btnOkEditar_Click);
             // 
-            // comboBox1
+            // cmbPuestos
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(71, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(146, 21);
-            this.comboBox1.TabIndex = 6;
+            this.cmbPuestos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPuestos.FormattingEnabled = true;
+            this.cmbPuestos.Location = new System.Drawing.Point(71, 60);
+            this.cmbPuestos.Name = "cmbPuestos";
+            this.cmbPuestos.Size = new System.Drawing.Size(146, 21);
+            this.cmbPuestos.TabIndex = 6;
             // 
-            // textBox2
+            // txtEdad
             // 
-            this.textBox2.Location = new System.Drawing.Point(275, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(37, 20);
-            this.textBox2.TabIndex = 10;
+            this.txtEdad.Location = new System.Drawing.Point(275, 25);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(37, 20);
+            this.txtEdad.TabIndex = 10;
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtNombre.Location = new System.Drawing.Point(71, 25);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(146, 20);
+            this.txtNombre.TabIndex = 9;
             // 
             // lblEdad
             // 
@@ -173,7 +173,7 @@
             // 
             // btnOkNuevo
             // 
-            this.btnOkNuevo.Location = new System.Drawing.Point(237, 63);
+            this.btnOkNuevo.Location = new System.Drawing.Point(237, 59);
             this.btnOkNuevo.Name = "btnOkNuevo";
             this.btnOkNuevo.Size = new System.Drawing.Size(75, 23);
             this.btnOkNuevo.TabIndex = 6;
@@ -406,9 +406,9 @@
         private System.Windows.Forms.TabPage tbReportes;
         private System.Windows.Forms.GroupBox grpDatos;
         private System.Windows.Forms.Button btnOkEditar;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cmbPuestos;
+        private System.Windows.Forms.TextBox txtEdad;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblPuesto;
         private System.Windows.Forms.Label lblNombre;
