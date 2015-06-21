@@ -313,12 +313,13 @@ namespace FinalBaseDatos
             MessageBox.Show("Exito");
         }
 
-        private DataTable Reportes(int order)
+        private DataTable Reportes(int order, int id)
         {
             SqlConnection con = new SqlConnection(cadenaCon);
             SqlCommand com = new SqlCommand("proc_getReportes", con);
             com.Parameters.AddWithValue("order", order);
-
+            com.Parameters.AddWithValue("id", id);
+            com.CommandType = CommandType.StoredProcedure;
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
             DataTable dt = new DataTable();
@@ -329,22 +330,26 @@ namespace FinalBaseDatos
 
         private void btnFecha_Click(object sender, EventArgs e)
         {
-            dgvRep.DataSource = Reportes(1);
+            
+            dgvRep.DataSource = Reportes(1, Empleado.empleadoActual.Id);
+            dgvRep.Refresh();
         }
 
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
-            dgvRep.DataSource = Reportes(2);
+            dgvRep.DataSource = Reportes(2, Empleado.empleadoActual.Id);
+            dgvRep.Refresh();
         }
 
         private void btnMonto_Click(object sender, EventArgs e)
         {
-            dgvRep.DataSource = Reportes(2);
+            dgvRep.DataSource = Reportes(3, Empleado.empleadoActual.Id);
+            dgvRep.Refresh();
         }
 
         private void cmbEmpleado3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            Empleado.empleadoActual = Empleado.lstEmpleados[cmbEmpleado3.SelectedIndex];
         }
     }
 }
