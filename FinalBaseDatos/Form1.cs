@@ -18,8 +18,8 @@ namespace FinalBaseDatos
         public Form1()
         {
             InitializeComponent();
-            LlamarEmpleados();
             LlamarPuestos();
+            LlamarEmpleados();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -111,7 +111,12 @@ namespace FinalBaseDatos
 
             Empleado emp = new Empleado();
             emp.Nombre = dt.Rows[0][0].ToString();
-            emp.Puesto = Convert.ToInt32(dt.Rows[0][1]);
+
+            int idPuesto = Convert.ToInt32(dt.Rows[0][1]);
+            foreach (Puesto item in Puesto.lstPuestos)
+                if (idPuesto == item.Id)
+                    emp.Puesto = item;
+
             emp.Edad = Convert.ToInt32(dt.Rows[0][2]);
             emp.Id = id;
 
