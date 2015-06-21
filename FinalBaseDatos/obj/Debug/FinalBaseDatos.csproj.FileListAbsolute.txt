@@ -16,3 +16,12 @@ C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\obj\Debug\FinalBaseDatos.c
 C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\obj\Debug\FinalBaseDatos.Form1.resources
 C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\obj\Debug\FinalBaseDatos.Properties.Resources.resources
 C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\obj\Debug\FinalBaseDatos.csproj.GenerateResource.Cache
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\bin\Debug\FinalBaseDatos.exe.config
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\bin\Debug\FinalBaseDatos.exe
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\bin\Debug\FinalBaseDatos.pdb
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.csprojResolveAssemblyReference.cache
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.Form1.resources
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.Properties.Resources.resources
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.csproj.GenerateResource.Cache
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.exe
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.pdb

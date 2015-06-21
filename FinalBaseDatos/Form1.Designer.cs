@@ -50,7 +50,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbEmpleado2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbReportes = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -236,7 +236,7 @@
             this.tbPagos.Controls.Add(this.textBox3);
             this.tbPagos.Controls.Add(this.label3);
             this.tbPagos.Controls.Add(this.label2);
-            this.tbPagos.Controls.Add(this.comboBox2);
+            this.tbPagos.Controls.Add(this.cmbEmpleado2);
             this.tbPagos.Controls.Add(this.label1);
             this.tbPagos.Location = new System.Drawing.Point(4, 22);
             this.tbPagos.Name = "tbPagos";
@@ -287,14 +287,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descuento: $";
             // 
-            // comboBox2
+            // cmbEmpleado2
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(113, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(210, 21);
-            this.comboBox2.TabIndex = 2;
+            this.cmbEmpleado2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpleado2.FormattingEnabled = true;
+            this.cmbEmpleado2.Location = new System.Drawing.Point(113, 30);
+            this.cmbEmpleado2.Name = "cmbEmpleado2";
+            this.cmbEmpleado2.Size = new System.Drawing.Size(210, 21);
+            this.cmbEmpleado2.TabIndex = 2;
+            this.cmbEmpleado2.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleado2_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -420,7 +421,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbEmpleado2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnMonto;
