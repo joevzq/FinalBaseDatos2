@@ -255,6 +255,7 @@
             this.btnPagar.TabIndex = 13;
             this.btnPagar.Text = "Pagar";
             this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // textBox4
             // 
