@@ -13,7 +13,6 @@ namespace FinalBaseDatos
 {
     public partial class Form1 : Form
     {
-        private List<string> lstEmpleados = new List<string>();
         private string cadenaCon = "Data Source=.;Initial Catalog=FinalBaseDatos;Integrated Security=True";
 
         public Form1()
@@ -66,7 +65,7 @@ namespace FinalBaseDatos
         private void LlamarEmpleados()
         {
             SqlConnection con = new SqlConnection(cadenaCon);
-            string proc = "proc_getNomsEmpleados";
+            string proc = "proc_getEmpleados";
             SqlCommand com = new SqlCommand(proc, con);
             com.CommandType = CommandType.StoredProcedure;
             con.Open();
@@ -74,12 +73,38 @@ namespace FinalBaseDatos
             DataTable dt = new DataTable();
             dt.Load(dr);
             con.Close();
-            lstEmpleados.Clear();
+            
+            Empleado.lstEmpleados.Clear();
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                lstEmpleados.Add(dt.Rows[i][0].ToString());
+                Empleado emp = new Empleado();
+                emp.Id = Convert.ToInt32(dt.Rows[i][0]);
+                emp.Nombre = dt.Rows[i][1].ToString();
+                Empleado.lstEmpleados.Add(emp);
             }
+            cmbEmpleado.Items.Clear();
+            foreach (Empleado item in Empleado.lstEmpleados)
+            {
+                cmbEmpleado.Items.Add(item.Nombre);
+            }
+        }
+        private void LlenarGrouBox(int id)
+        {
+            SqlConnection con = new SqlConnection(cadenaCon);
+            string proc = "proc_getDatosEmpleado";
+            SqlCommand com = new SqlCommand(proc, con);
+            com.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            SqlDataReader dr = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            con.Close();
+
+            Empleado emp = new Empleado();
+            emp.Nombre = dt.Rows[0][0].ToString();
+            emp.Puesto = Convert.ToInt32(dt.Rows[0][1]);
+            emp.Edad = Convert.ToInt32(dt.Rows[0][2]);
         }
     }
 }

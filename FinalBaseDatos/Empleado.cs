@@ -8,6 +8,8 @@ namespace FinalBaseDatos
 {
     public class Empleado
     {
+        public static List<Empleado> lstEmpleados = new List<Empleado>();
+
         private int id;
 
         public int Id
@@ -36,9 +38,9 @@ namespace FinalBaseDatos
             get { return fechaIngreso; }
             set { fechaIngreso = value; }
         }
-        private string puesto;
+        private int puesto;
 
-        public string Puesto
+        public int Puesto
         {
             get { return puesto; }
             set { puesto = value; }
@@ -50,5 +52,6 @@ namespace FinalBaseDatos
             get { return salarioBase; }
             set { salarioBase = value; }
         }
+
     }
 }
