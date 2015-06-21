@@ -161,9 +161,12 @@ namespace FinalBaseDatos
 
         private void cmbEmpleado2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Empleado emp = Empleado.lstEmpleados[cmbEmpleado2.SelectedIndex];
+            MessageBox.Show(emp.Nombre);
             SqlConnection con = new SqlConnection(cadenaCon);
             string proc = "proc_getSalarioBase";
             SqlCommand com = new SqlCommand(proc, con);
+            com.Parameters.AddWithValue("id", emp.Id);
             com.CommandType = CommandType.StoredProcedure;
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
@@ -171,7 +174,8 @@ namespace FinalBaseDatos
             dt.Load(dr);
             con.Close();
 
-            
+            emp.Puesto.SalarioBase = Convert.ToInt64(dt.Rows[0][0]);
+            MessageBox.Show(emp.Puesto.SalarioBase.ToString());
         }
     }
 }
