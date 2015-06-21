@@ -119,6 +119,7 @@
             this.btnOkEditar.TabIndex = 11;
             this.btnOkEditar.Text = "Editar";
             this.btnOkEditar.UseVisualStyleBackColor = true;
+            this.btnOkEditar.Click += new System.EventHandler(this.btnOkEditar_Click);
             // 
             // comboBox1
             // 
@@ -178,6 +179,7 @@
             this.btnOkNuevo.TabIndex = 6;
             this.btnOkNuevo.Text = "Nuevo";
             this.btnOkNuevo.UseVisualStyleBackColor = true;
+            this.btnOkNuevo.Click += new System.EventHandler(this.btnOkNuevo_Click);
             // 
             // btnEliminar
             // 
@@ -187,6 +189,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
