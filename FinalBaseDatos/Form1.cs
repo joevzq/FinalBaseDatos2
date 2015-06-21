@@ -95,6 +95,7 @@ namespace FinalBaseDatos
             {
                 cmbEmpleado.Items.Add(item.Nombre);
                 cmbEmpleado2.Items.Add(item.Nombre);
+                cmbEmpleado3.Items.Add(item.Nombre);
             }
         }
         private void LlenarGrouBox(int id)
@@ -161,12 +162,11 @@ namespace FinalBaseDatos
 
         private void cmbEmpleado2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Empleado emp = Empleado.lstEmpleados[cmbEmpleado2.SelectedIndex];
-            MessageBox.Show(emp.Nombre);
+            Empleado.empleadoActual = Empleado.lstEmpleados[cmbEmpleado2.SelectedIndex];
             SqlConnection con = new SqlConnection(cadenaCon);
             string proc = "proc_getSalarioBase";
             SqlCommand com = new SqlCommand(proc, con);
-            com.Parameters.AddWithValue("idEmp", emp.Id);
+            com.Parameters.AddWithValue("idEmp", Empleado.empleadoActual.Id);
             com.CommandType = CommandType.StoredProcedure;
             con.Open();
             SqlDataReader dr = com.ExecuteReader();
@@ -174,14 +174,63 @@ namespace FinalBaseDatos
             dt.Load(dr);
             con.Close();
 
-            emp.Puesto = new Puesto();
-            emp.Puesto.SalarioBase = Convert.ToInt64(dt.Rows[0][0]);
-            MessageBox.Show(emp.Puesto.SalarioBase.ToString());
+            Empleado.empleadoActual.Puesto = new Puesto();
+            Empleado.empleadoActual.Puesto.SalarioBase = Convert.ToInt64(dt.Rows[0][0]);
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
+            Pago p = new Pago();
+            p.Descuento = long.Parse(txtDesc.Text);
+            p.Incentivo = long.Parse(txtInc.Text);
+            p.PagoFinal = Empleado.empleadoActual.Puesto.SalarioBase + p.Incentivo - p.Descuento;
+            SqlConnection con = new SqlConnection(cadenaCon);
+            SqlCommand com = new SqlCommand("proc_setPago",con);
+            com.Parameters.AddWithValue("desc", p.Descuento);
+            com.Parameters.AddWithValue("inc", p.Incentivo);
+            com.Parameters.AddWithValue("pagF", p.PagoFinal);
+            com.Parameters.AddWithValue("idEmp", Empleado.empleadoActual.Id);
+            com.CommandType = CommandType.StoredProcedure;
+            
+            con.Open();
+            
+            com.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Exito");
+        }
 
+        private DataTable Reportes(int order)
+        {
+            SqlConnection con = new SqlConnection(cadenaCon);
+            SqlCommand com = new SqlCommand("proc_getReportes", con);
+            com.Parameters.AddWithValue("order", order);
+
+            con.Open();
+            SqlDataReader dr = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            con.Close();
+            return dt;
+        }
+
+        private void btnFecha_Click(object sender, EventArgs e)
+        {
+            dgvRep.DataSource = Reportes(1);
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            dgvRep.DataSource = Reportes(2);
+        }
+
+        private void btnMonto_Click(object sender, EventArgs e)
+        {
+            dgvRep.DataSource = Reportes(2);
+        }
+
+        private void cmbEmpleado3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -46,25 +46,25 @@
             this.lblEmpleado = new System.Windows.Forms.Label();
             this.tbPagos = new System.Windows.Forms.TabPage();
             this.btnPagar = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtInc = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbEmpleado2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbReportes = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvRep = new System.Windows.Forms.DataGridView();
             this.btnMonto = new System.Windows.Forms.Button();
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.btnFecha = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbEmpleado3 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabCtrl.SuspendLayout();
             this.tbAdmin.SuspendLayout();
             this.grpDatos.SuspendLayout();
             this.tbPagos.SuspendLayout();
             this.tbReportes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRep)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCtrl
@@ -232,8 +232,8 @@
             // tbPagos
             // 
             this.tbPagos.Controls.Add(this.btnPagar);
-            this.tbPagos.Controls.Add(this.textBox4);
-            this.tbPagos.Controls.Add(this.textBox3);
+            this.tbPagos.Controls.Add(this.txtInc);
+            this.tbPagos.Controls.Add(this.txtDesc);
             this.tbPagos.Controls.Add(this.label3);
             this.tbPagos.Controls.Add(this.label2);
             this.tbPagos.Controls.Add(this.cmbEmpleado2);
@@ -256,19 +256,19 @@
             this.btnPagar.UseVisualStyleBackColor = true;
             this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
-            // textBox4
+            // txtInc
             // 
-            this.textBox4.Location = new System.Drawing.Point(269, 94);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(54, 20);
-            this.textBox4.TabIndex = 12;
+            this.txtInc.Location = new System.Drawing.Point(269, 94);
+            this.txtInc.Name = "txtInc";
+            this.txtInc.Size = new System.Drawing.Size(54, 20);
+            this.txtInc.TabIndex = 12;
             // 
-            // textBox3
+            // txtDesc
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 94);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(54, 20);
-            this.textBox3.TabIndex = 11;
+            this.txtDesc.Location = new System.Drawing.Point(113, 94);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(54, 20);
+            this.txtDesc.TabIndex = 11;
             // 
             // label3
             // 
@@ -309,11 +309,11 @@
             // 
             // tbReportes
             // 
-            this.tbReportes.Controls.Add(this.dataGridView1);
+            this.tbReportes.Controls.Add(this.dgvRep);
             this.tbReportes.Controls.Add(this.btnMonto);
             this.tbReportes.Controls.Add(this.btnEmpleado);
             this.tbReportes.Controls.Add(this.btnFecha);
-            this.tbReportes.Controls.Add(this.comboBox3);
+            this.tbReportes.Controls.Add(this.cmbEmpleado3);
             this.tbReportes.Controls.Add(this.label4);
             this.tbReportes.Location = new System.Drawing.Point(4, 22);
             this.tbReportes.Name = "tbReportes";
@@ -322,13 +322,13 @@
             this.tbReportes.Text = "Reportes";
             this.tbReportes.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvRep
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 42);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(484, 176);
-            this.dataGridView1.TabIndex = 17;
+            this.dgvRep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRep.Location = new System.Drawing.Point(3, 42);
+            this.dgvRep.Name = "dgvRep";
+            this.dgvRep.Size = new System.Drawing.Size(484, 176);
+            this.dgvRep.TabIndex = 17;
             // 
             // btnMonto
             // 
@@ -338,6 +338,7 @@
             this.btnMonto.TabIndex = 16;
             this.btnMonto.Text = "Monto";
             this.btnMonto.UseVisualStyleBackColor = true;
+            this.btnMonto.Click += new System.EventHandler(this.btnMonto_Click);
             // 
             // btnEmpleado
             // 
@@ -347,6 +348,7 @@
             this.btnEmpleado.TabIndex = 15;
             this.btnEmpleado.Text = "Empleado";
             this.btnEmpleado.UseVisualStyleBackColor = true;
+            this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
             // 
             // btnFecha
             // 
@@ -356,15 +358,17 @@
             this.btnFecha.TabIndex = 14;
             this.btnFecha.Text = "Fecha";
             this.btnFecha.UseVisualStyleBackColor = true;
+            this.btnFecha.Click += new System.EventHandler(this.btnFecha_Click);
             // 
-            // comboBox3
+            // cmbEmpleado3
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(80, 12);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(144, 21);
-            this.comboBox3.TabIndex = 4;
+            this.cmbEmpleado3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpleado3.FormattingEnabled = true;
+            this.cmbEmpleado3.Location = new System.Drawing.Point(80, 12);
+            this.cmbEmpleado3.Name = "cmbEmpleado3";
+            this.cmbEmpleado3.Size = new System.Drawing.Size(144, 21);
+            this.cmbEmpleado3.TabIndex = 4;
+            this.cmbEmpleado3.SelectedIndexChanged += new System.EventHandler(this.cmbEmpleado3_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -392,7 +396,7 @@
             this.tbPagos.PerformLayout();
             this.tbReportes.ResumeLayout(false);
             this.tbReportes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRep)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -418,17 +422,17 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnPagar;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtInc;
+        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbEmpleado2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvRep;
         private System.Windows.Forms.Button btnMonto;
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Button btnFecha;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbEmpleado3;
         private System.Windows.Forms.Label label4;
     }
 }
