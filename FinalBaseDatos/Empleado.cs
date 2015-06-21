@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+
 
 namespace FinalBaseDatos
 {
     public class Empleado
     {
+        #region ATRIBUTOS
         private int id;
 
         public int Id
@@ -57,5 +61,10 @@ namespace FinalBaseDatos
             get { return pagos; }
             set { pagos = value; }
         }
+        #endregion
+
+        #region METODOS
+        
+        #endregion
     }
 }
