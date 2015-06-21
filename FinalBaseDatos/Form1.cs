@@ -93,6 +93,7 @@ namespace FinalBaseDatos
             foreach (Empleado item in Empleado.lstEmpleados)
             {
                 cmbEmpleado.Items.Add(item.Nombre);
+                cmbEmpleado2.Items.Add(item.Nombre);
             }
         }
         private void LlenarGrouBox(int id)
@@ -150,6 +151,21 @@ namespace FinalBaseDatos
         private void SelectPuesto(int id)
         {
 
+        }
+
+        private void cmbEmpleado2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(cadenaCon);
+            string proc = "proc_getSalarioBase";
+            SqlCommand com = new SqlCommand(proc, con);
+            com.CommandType = CommandType.StoredProcedure;
+            con.Open();
+            SqlDataReader dr = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            con.Close();
+
+            
         }
     }
 }
