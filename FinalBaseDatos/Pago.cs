@@ -8,6 +8,7 @@ namespace FinalBaseDatos
 {
     public class Pago
     {
+        #region ATRIBUTOS
         private int id;
 
         public int Id
@@ -43,5 +44,9 @@ namespace FinalBaseDatos
             get { return pagoFinal; }
             set { pagoFinal = value; }
         }
+        #endregion
+
+        #region METODOS
+        #endregion
     }
 }
