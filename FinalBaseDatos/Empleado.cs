@@ -12,6 +12,7 @@ namespace FinalBaseDatos
     public class Empleado
     {
         public static List<Empleado> lstEmpleados = new List<Empleado>();
+        public static Empleado empleadoActual = new Empleado();
 
         #region ATRIBUTOS
         private int id;

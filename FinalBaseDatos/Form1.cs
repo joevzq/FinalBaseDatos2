@@ -51,6 +51,7 @@ namespace FinalBaseDatos
             int index = cmbEmpleado.SelectedIndex;
             int id = Empleado.lstEmpleados[index].Id;
             LlenarGrouBox(id);
+            SelectPuesto();
         }
 
         private void btnOkEditar_Click(object sender, EventArgs e)
@@ -109,19 +110,18 @@ namespace FinalBaseDatos
             dt.Load(dr);
             con.Close();
 
-            Empleado emp = new Empleado();
-            emp.Nombre = dt.Rows[0][0].ToString();
+            Empleado.empleadoActual.Nombre = dt.Rows[0][0].ToString();
 
             int idPuesto = Convert.ToInt32(dt.Rows[0][1]);
             foreach (Puesto item in Puesto.lstPuestos)
                 if (idPuesto == item.Id)
-                    emp.Puesto = item;
+                    Empleado.empleadoActual.Puesto = item;
 
-            emp.Edad = Convert.ToInt32(dt.Rows[0][2]);
-            emp.Id = id;
+            Empleado.empleadoActual.Edad = Convert.ToInt32(dt.Rows[0][2]);
+            Empleado.empleadoActual.Id = id;
 
-            txtNombre.Text = emp.Nombre;
-            txtEdad.Text = emp.Edad.ToString();
+            txtNombre.Text = Empleado.empleadoActual.Nombre;
+            txtEdad.Text = Empleado.empleadoActual.Edad.ToString();
         }
         private void LlamarPuestos()
         {
@@ -148,9 +148,15 @@ namespace FinalBaseDatos
             }
         }
 
-        private void SelectPuesto(int id)
+        private void SelectPuesto()
         {
-
+            int index = 0;
+            for (int i = 0; i < Puesto.lstPuestos.Count; i++)
+            {
+                if (Puesto.lstPuestos[i].Id == Empleado.empleadoActual.Puesto.Id)
+                    index = i;
+            }
+            cmbPuestos.SelectedIndex = index;
         }
 
         private void cmbEmpleado2_SelectedIndexChanged(object sender, EventArgs e)
