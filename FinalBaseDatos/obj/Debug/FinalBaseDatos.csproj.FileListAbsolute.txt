@@ -10,3 +10,6 @@ C:\Users\joevzq\Documents\Visual Studio 2013\Projects\BDPracticas\FinalBaseDatos
 C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\bin\Debug\FinalBaseDatos.exe.config
 C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\obj\Debug\FinalBaseDatos.exe
 C:\Users\joevzq\Desktop\FinalBaseDatos\FinalBaseDatos\obj\Debug\FinalBaseDatos.pdb
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\bin\Debug\FinalBaseDatos.exe.config
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.exe
+C:\Users\laloa_000\GitHub\FinalBaseDatos2\FinalBaseDatos\obj\Debug\FinalBaseDatos.pdb
