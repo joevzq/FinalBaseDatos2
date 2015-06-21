@@ -50,12 +50,12 @@ namespace FinalBaseDatos
             get { return salarioBase; }
             set { salarioBase = value; }
         }
-        private Pago pago;
+        private List<Pago> pagos;
 
-        public Pago Pago
+        public List<Pago> Pagos
         {
-            get { return pago; }
-            set { pago = value; }
+            get { return pagos; }
+            set { pagos = value; }
         }
     }
 }
