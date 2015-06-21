@@ -1,0 +1,15 @@
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE proc_getPuestos
+	
+AS
+BEGIN
+	
+	SELECT idPuesto, nombre FROM Puestos
+
+END
+GO

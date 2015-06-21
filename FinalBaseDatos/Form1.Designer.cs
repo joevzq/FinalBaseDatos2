@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tbAdmin = new System.Windows.Forms.TabPage();
             this.grpDatos = new System.Windows.Forms.GroupBox();
@@ -385,7 +386,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 271);
             this.Controls.Add(this.tabCtrl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.tabCtrl.ResumeLayout(false);
             this.tbAdmin.ResumeLayout(false);

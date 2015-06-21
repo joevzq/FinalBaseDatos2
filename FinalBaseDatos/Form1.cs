@@ -14,6 +14,7 @@ namespace FinalBaseDatos
     public partial class Form1 : Form
     {
         private string cadenaCon = "Data Source=.;Initial Catalog=FinalBaseDatos;Integrated Security=True";
+        private int idEmpleado;
 
         public Form1()
         {
@@ -50,23 +51,134 @@ namespace FinalBaseDatos
             ShowGroupBox(false);
             int index = cmbEmpleado.SelectedIndex;
             int id = Empleado.lstEmpleados[index].Id;
+            idEmpleado = id;
             LlenarGrouBox(id);
             SelectPuesto();
         }
 
         private void btnOkEditar_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                string nombre = txtNombre.Text;
+                int edad;
+                int indexPuesto = cmbPuestos.SelectedIndex;
+                bool exito = int.TryParse(txtEdad.Text, out edad);
+
+                if (!exito || edad < 18)
+                {
+                    MessageBox.Show("Edad no válida.");
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(nombre))
+                {
+                    MessageBox.Show("Nombre no válido.");
+                    return;
+                }
+                if (indexPuesto < 0)
+                {
+                    MessageBox.Show("Selecciona un puesto.");
+                    return;
+                }
+
+                SqlConnection con = new SqlConnection(cadenaCon);
+                string proc = "proc_updateEmpleado";
+                SqlCommand com = new SqlCommand(proc, con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("id", idEmpleado);
+                com.Parameters.AddWithValue("nombre", nombre);
+                com.Parameters.AddWithValue("edad", edad);
+                com.Parameters.AddWithValue("idPuesto", indexPuesto + 1);
+                con.Open();
+                com.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Éxito.");
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("No proceso.");
+            }
+
             grpDatos.Visible = false;
+
         }
 
         private void btnOkNuevo_Click(object sender, EventArgs e)
         {
-            grpDatos.Visible = false;
+            try
+            {
+                string nombre = txtNombre.Text;
+                int edad;
+                int indexPuesto = cmbPuestos.SelectedIndex;
+                bool exito = int.TryParse(txtEdad.Text, out edad);
+
+                if (!exito || edad < 18)
+                {
+                    MessageBox.Show("Edad no válida.");
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(nombre))
+                {
+                    MessageBox.Show("Nombre no válido.");
+                    return;
+                }
+                if (indexPuesto < 0)
+                {
+                    MessageBox.Show("Selecciona un puesto.");
+                    return;
+                }
+
+                SqlConnection con = new SqlConnection(cadenaCon);
+                string proc = "proc_setEmpleado";
+                SqlCommand com = new SqlCommand(proc, con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("nombre", nombre);
+                com.Parameters.AddWithValue("edad", edad);
+                com.Parameters.AddWithValue("idPuesto", indexPuesto + 1);
+                con.Open();
+                com.ExecuteNonQuery();
+                con.Close();
+
+                MessageBox.Show("Éxito.");
+
+                grpDatos.Visible = false;
+
+                LlamarEmpleados();
+            }
+
+            catch (Exception)
+            {
+                MessageBox.Show("No proceso.");
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+            try
+            {
+                int index = cmbEmpleado.SelectedIndex;
+                int id = Empleado.lstEmpleados[index].Id;
+
+                SqlConnection con = new SqlConnection(cadenaCon);
+                string proc = "proc_deleteEmpleado";
+                SqlCommand com = new SqlCommand(proc, con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("id", id);
+                con.Open();
+                int ex = com.ExecuteNonQuery();
+                con.Close();
+
+                if (ex > 0)
+                    MessageBox.Show("Éxito.");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No proceso.");
+            }
+
         }
 
         private void LlamarEmpleados()
@@ -98,6 +210,7 @@ namespace FinalBaseDatos
                 cmbEmpleado3.Items.Add(item.Nombre);
             }
         }
+
         private void LlenarGrouBox(int id)
         {
             SqlConnection con = new SqlConnection(cadenaCon);
@@ -124,6 +237,7 @@ namespace FinalBaseDatos
             txtNombre.Text = Empleado.empleadoActual.Nombre;
             txtEdad.Text = Empleado.empleadoActual.Edad.ToString();
         }
+        
         private void LlamarPuestos()
         {
             SqlConnection con = new SqlConnection(cadenaCon);
